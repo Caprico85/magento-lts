@@ -136,7 +136,7 @@ abstract class Mage_Shell_Abstract
     protected function _parseArgs()
     {
         $current = null;
-        foreach ($_SERVER['argv'] as $arg) {
+        foreach (($_SERVER['argv'] ?? []) as $arg) {
             $match = array();
             if (preg_match('#^--([\w\d_-]{1,})$#', $arg, $match) || preg_match('#^-([\w\d_]{1,})$#', $arg, $match)) {
                 $current = $match[1];
