@@ -52,7 +52,9 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
             if (!Mage::getSingleton('customer/session')->getBeforeWishlistUrl()) {
                 Mage::getSingleton('customer/session')->setBeforeWishlistUrl($this->_getRefererUrl());
             }
-            Mage::getSingleton('customer/session')->setBeforeWishlistRequest($this->getRequest()->getParams());
+            if (!Mage::getSingleton('customer/session')->getBeforeWishlistRequest()) {
+                Mage::getSingleton('customer/session')->setBeforeWishlistRequest($this->getRequest()->getParams());
+            }
         }
         if (!Mage::getStoreConfigFlag('wishlist/general/active')) {
             $this->norouteAction();
