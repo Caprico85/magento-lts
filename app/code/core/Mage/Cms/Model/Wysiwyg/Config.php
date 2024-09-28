@@ -117,7 +117,7 @@ class Mage_Cms_Model_Wysiwyg_Config extends Varien_Object
      */
     public function getSkinImagePlaceholderUrl()
     {
-        return Mage::getDesign()->getSkinUrl(self::WYSIWYG_SKIN_IMAGE_PLACEHOLDER_FILE);
+        return Mage::getDesign()->getFilename(self::WYSIWYG_SKIN_IMAGE_PLACEHOLDER_FILE, ['_type' => 'skin']);
     }
 
     /**
